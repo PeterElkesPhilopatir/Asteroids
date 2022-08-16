@@ -7,9 +7,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.peter.asteroids.R
+import com.peter.asteroids.business.models.Asteroid
+import com.peter.asteroids.framework.datasource.response.ImageOfDay
 
 @BindingAdapter("imageUrl")
-fun bindImage(imgView: ImageView, imgUrl: String) {
+fun bindImage(imgView: ImageView, imageOfDay: ImageOfDay) {
+    val imgUrl = imageOfDay.url
+    imgView.contentDescription = imageOfDay.title
     if (imgUrl.isNotEmpty()) {
         try {
             imgUrl.let {
@@ -43,7 +47,9 @@ fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
 fun bindAsteroidStatus(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.ic_status_potentially_hazardous)
+        imageView.contentDescription = imageView.context.getString(R.string.is_hazardous)
     } else {
         imageView.setImageResource(R.drawable.ic_status_normal)
+        imageView.contentDescription = imageView.context.getString(R.string.normal)
     }
 }

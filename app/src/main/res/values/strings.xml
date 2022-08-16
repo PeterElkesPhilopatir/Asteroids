@@ -7,4 +7,7 @@
     <string name="estimated_diameter">Estimated Diameter</string>
     <string name="relative_velocity">Relative Velocity</string>
     <string name="distance_from_earth">Distance From Earth</string>
+
+    <string name="is_hazardous">Hazardous</string>
+    <string name="normal">Normal</string>
 </resources>

@@ -42,6 +42,7 @@
             tools:text="2022-09-09" />
 
         <ImageView
+            android:contentDescription="@{data.potentiallyHazardous? @string/is_hazarous : @string/normal}"
             android:id="@+id/iv_hazard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +50,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="@dimen/_16sdp"
             app:layout_constraintTop_toTopOf="@+id/tv_name"
-            android:contentDescription="@{data.codename}"
             app:statusIcon="@{data.potentiallyHazardous}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

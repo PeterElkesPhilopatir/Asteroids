@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.imageOfDay.observe(viewLifecycleOwner) {
-            bindImage(binding.ivImgOfDay, it.url)
+            bindImage(binding.ivImgOfDay, it)
         }
         viewModel.data.observe(viewLifecycleOwner) {
             val adapter =
