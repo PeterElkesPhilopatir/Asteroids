@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Asteroids</string>
+    <string name="asteroid_hazard_cd">Asteroid Hazard Image</string>
+</resources>

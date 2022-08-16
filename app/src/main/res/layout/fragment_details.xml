@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.peter.asteroids.framework.ui.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".framework.ui.details.DetailsFragment">
+
+        <ImageView
+            android:id="@+id/iv_img_of_day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:asteroidStatus="@{viewModel.selectedAsteroid.isPotentiallyHazardous}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="@string/asteroid_hazard_cd"
+            tools:text="6" />
+
+
+        <TextView
+            android:id="@+id/tv_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Close approach date"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_img_of_day" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.selectedAsteroid.closeApproachDate}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/tv_title1"
+            app:layout_constraintTop_toBottomOf="@id/tv_title1"
+            tools:text="date" />
+
+        <TextView
+            android:id="@+id/tv_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Absolute magnitude"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_date" />
+
+        <TextView
+            android:id="@+id/tv_abs_mag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.selectedAsteroid.absoluteMagnitude) + ` au`}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+
+            app:layout_constraintStart_toStartOf="@id/tv_title2"
+            app:layout_constraintTop_toBottomOf="@id/tv_title2"
+            tools:text="abs" />
+
+        <TextView
+            android:id="@+id/tv_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Estimated Diameter"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_abs_mag" />
+
+        <TextView
+            android:id="@+id/tv_estimated_diameter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.selectedAsteroid.estimatedDiameter)+` km`}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+
+            app:layout_constraintStart_toStartOf="@id/tv_title3"
+            app:layout_constraintTop_toBottomOf="@id/tv_title3"
+            tools:text="diameter" />
+
+        <TextView
+            android:id="@+id/tv_title4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Relative Velocity"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_estimated_diameter" />
+
+        <TextView
+            android:id="@+id/tv_velocity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.selectedAsteroid.relativeVelocity) + ` km/s`}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+
+            app:layout_constraintStart_toStartOf="@id/tv_title4"
+            app:layout_constraintTop_toBottomOf="@id/tv_title4"
+            tools:text="velocity" />
+
+        <TextView
+            android:id="@+id/tv_title5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Distance From Earth"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_velocity" />
+
+        <TextView
+            android:id="@+id/tv_distance_from_earth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.selectedAsteroid.distanceFromEarth)+` au`}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/tv_title5"
+            app:layout_constraintTop_toBottomOf="@id/tv_title5"
+            tools:text="distance" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
