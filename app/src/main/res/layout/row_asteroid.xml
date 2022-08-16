@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_16sdp"
-            android:contentDescription="@{data.potentiallyHazardous? @string/is_hazarous : @string/normal}"
+            android:contentDescription="@{data.potentiallyHazardous? @string/is_hazardous : @string/normal}"
             app:layout_constraintBottom_toBottomOf="@+id/tv_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_name"

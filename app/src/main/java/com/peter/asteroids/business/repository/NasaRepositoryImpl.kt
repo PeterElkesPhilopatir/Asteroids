@@ -30,7 +30,6 @@ class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private v
                 ).awaitResponse()
                 if (response.isSuccessful) {
                     Log.i("Nasa", response.body().toString())
-
                     val list = parseNasaResponse(response.body().toString())
                     list.forEach { dao.insertAsteroid(it) }
                     emit(list)
