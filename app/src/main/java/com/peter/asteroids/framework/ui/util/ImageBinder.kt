@@ -14,7 +14,7 @@ fun bindImage(imgView: ImageView, imgUrl: String) {
         try {
             imgUrl.let {
                 imgView.clipToOutline = true
-                var imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+                val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
                 Glide.with(imgView.context)
                     .load(imgUri)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -36,5 +36,14 @@ fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
         imageView.setImageResource(R.drawable.asteroid_hazardous)
     } else {
         imageView.setImageResource(R.drawable.asteroid_safe)
+    }
+}
+
+@BindingAdapter("statusIcon")
+fun bindAsteroidStatus(imageView: ImageView, isHazardous: Boolean) {
+    if (isHazardous) {
+        imageView.setImageResource(R.drawable.ic_status_potentially_hazardous)
+    } else {
+        imageView.setImageResource(R.drawable.ic_status_normal)
     }
 }

@@ -31,14 +31,13 @@
             android:contentDescription="@string/asteroid_hazard_cd"
             tools:text="6" />
 
-
         <TextView
             android:id="@+id/tv_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Close approach date"
+            android:text="@string/close_approach_date"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -62,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Absolute magnitude"
+            android:text="@string/absolute_magnitude"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -87,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Estimated Diameter"
+            android:text="@string/estimated_diameter"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -112,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Relative Velocity"
+            android:text="@string/relative_velocity"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -137,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Distance From Earth"
+            android:text="@string/distance_from_earth"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -155,6 +154,17 @@
             app:layout_constraintTop_toBottomOf="@id/tv_title5"
             tools:text="distance" />
 
+        <ImageView
+            android:contentDescription="@{viewModel.selectedAsteroid.codename}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:src="@drawable/ic_help"
+            android:id="@+id/iv_help"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_abs_mag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_title2"
+            app:tint="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
