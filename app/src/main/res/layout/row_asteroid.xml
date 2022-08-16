@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@{data.codename}"
             android:text="@{data.codename}"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -33,24 +34,25 @@
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@{data.closeApproachDate}"
             android:text="@{data.closeApproachDate}"
             android:textColor="@color/white"
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_name"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="2022-09-09" />
 
         <ImageView
-            android:contentDescription="@{data.potentiallyHazardous? @string/is_hazarous : @string/normal}"
             android:id="@+id/iv_hazard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:contentDescription="@{data.potentiallyHazardous? @string/is_hazarous : @string/normal}"
             app:layout_constraintBottom_toBottomOf="@+id/tv_date"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="@dimen/_16sdp"
             app:layout_constraintTop_toTopOf="@+id/tv_name"
-            app:statusIcon="@{data.potentiallyHazardous}"/>
+            app:statusIcon="@{data.potentiallyHazardous}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
