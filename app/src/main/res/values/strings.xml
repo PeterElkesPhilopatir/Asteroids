@@ -2,6 +2,7 @@
     <string name="app_name">Asteroids</string>
     <string name="asteroid_hazard_cd">Asteroid Hazard Image</string>
     <string name="au_exp">Astronomical unit (au) is a unit of length, roughly the distance from Earth to the Sun and equal to about 150 million kilometres (93 million miles) </string>
+    <string name="au_exp_help">Help : Astronomical unit (au) is a unit of length, roughly the distance from Earth to the Sun and equal to about 150 million kilometres (93 million miles) </string>
     <string name="close_approach_date">Close approach date</string>
     <string name="absolute_magnitude">Absolute magnitude</string>
     <string name="estimated_diameter">Estimated Diameter</string>

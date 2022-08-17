@@ -17,6 +17,7 @@
         tools:context=".framework.ui.details.DetailsFragment">
 
         <ImageView
+
             android:id="@+id/iv_img_of_day"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -64,6 +65,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/absolute_magnitude"
+            android:contentDescription="@string/absolute_magnitude"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -94,6 +96,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:contentDescription="@string/estimated_diameter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_abs_mag" />
 
@@ -117,6 +120,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/relative_velocity"
+            android:contentDescription="@string/relative_velocity"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -143,6 +147,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/distance_from_earth"
+            android:contentDescription="@string/distance_from_earth"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -162,7 +167,7 @@
             tools:text="distance" />
 
         <ImageView
-            android:contentDescription="@{viewModel.selectedAsteroid.codename}"
+            android:contentDescription="@string/au_exp_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_16sdp"

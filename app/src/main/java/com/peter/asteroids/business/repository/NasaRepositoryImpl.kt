@@ -34,10 +34,24 @@ class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private v
                     list.forEach { dao.insertAsteroid(it) }
                     emit(list)
                 } else {
-                    emit(dao.getAsteroids())
+                    emit(
+                        dao.getAsteroids(
+                            SimpleDateFormat(
+                                Constants.DATE_FORMAT,
+                                Locale.getDefault()
+                            ).format(Calendar.getInstance().time)
+                        )
+                    )
                 }
             } catch (e: Exception) {
-                emit(dao.getAsteroids())
+                emit(
+                    dao.getAsteroids(
+                        SimpleDateFormat(
+                            Constants.DATE_FORMAT,
+                            Locale.getDefault()
+                        ).format(Calendar.getInstance().time)
+                    )
+                )
             }
         }.flowOn(IO)
 
