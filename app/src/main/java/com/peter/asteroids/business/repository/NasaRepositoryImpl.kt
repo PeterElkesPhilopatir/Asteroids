@@ -28,7 +28,6 @@ class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private v
 
     private val endDate = LocalDateTime.now().minusDays(7)
 
-
     override fun getAsteroids(): Flow<List<Asteroid>> =
         flow {
             try {
@@ -76,9 +75,8 @@ class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private v
     override fun getAsteroidsWeek(): Flow<List<Asteroid>> = flow {
         emit(
             dao.getAsteroidsByPeriod(
-                startDate.format(DateTimeFormatter.ISO_DATE), endDate.format(
-                    DateTimeFormatter.ISO_DATE
-                )
+                startDate.format(DateTimeFormatter.ISO_DATE),
+                endDate.format(DateTimeFormatter.ISO_DATE)
             )
         )
     }.flowOn(IO)
