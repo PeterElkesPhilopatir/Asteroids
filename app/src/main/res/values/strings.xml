@@ -11,4 +11,7 @@
 
     <string name="is_hazardous">Hazardous</string>
     <string name="normal">Normal</string>
+    <string name="all">All</string>
+    <string name="week">Week</string>
+    <string name="today">Today</string>
 </resources>

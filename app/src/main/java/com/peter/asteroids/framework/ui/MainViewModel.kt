@@ -45,10 +45,27 @@ class MainViewModel @Inject constructor(private val repository: INasaRepository)
         }
     }
 
-    private suspend fun getAsteroids() {
+     suspend fun getAsteroids() {
         repository.getAsteroids().collect {
             Log.i("Nasa_list", it.toJson())
             _data.value = it
         }
     }
+
+
+     suspend fun getAsteroidsToday() {
+        repository.getAsteroidsDay().collect {
+            Log.i("Nasa_list", it.toJson())
+            _data.value = it
+        }
+    }
+
+     suspend fun getAsteroidsWeek() {
+        repository.getAsteroidsWeek().collect {
+            Log.i("Nasa_list", it.toJson())
+            _data.value = it
+        }
+    }
+
+
 }

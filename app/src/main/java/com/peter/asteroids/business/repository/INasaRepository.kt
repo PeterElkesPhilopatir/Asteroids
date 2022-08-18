@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface INasaRepository {
     fun getAsteroids(): Flow<List<Asteroid>>
-
-    fun getImageOfDay() : Flow<ImageOfDay>
+    fun getImageOfDay(): Flow<ImageOfDay>
+    fun getAsteroidsWeek(): Flow<List<Asteroid>>
+    fun getAsteroidsDay(): Flow<List<Asteroid>>
 }

@@ -1,6 +1,8 @@
 package com.peter.asteroids.business.repository
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import com.peter.asteroids.business.models.Asteroid
 import com.peter.asteroids.business.utils.Constants
 import com.peter.asteroids.framework.datasource.database.NasaDao
@@ -14,11 +16,19 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import retrofit2.awaitResponse
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 import javax.inject.Inject
 
 class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private val dao: NasaDao) :
     INasaRepository {
+
+    private val startDate = LocalDateTime.now()
+
+    private val endDate = LocalDateTime.now().minusDays(7)
+
+
     override fun getAsteroids(): Flow<List<Asteroid>> =
         flow {
             try {
@@ -34,23 +44,11 @@ class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private v
                     list.forEach { dao.insertAsteroid(it) }
                     emit(list)
                 } else {
-                    emit(
-                        dao.getAsteroids(
-                            SimpleDateFormat(
-                                Constants.DATE_FORMAT,
-                                Locale.getDefault()
-                            ).format(Calendar.getInstance().time)
-                        )
-                    )
+                    emit(dao.getAsteroids())
                 }
             } catch (e: Exception) {
                 emit(
-                    dao.getAsteroids(
-                        SimpleDateFormat(
-                            Constants.DATE_FORMAT,
-                            Locale.getDefault()
-                        ).format(Calendar.getInstance().time)
-                    )
+                    dao.getAsteroids()
                 )
             }
         }.flowOn(IO)
@@ -73,5 +71,23 @@ class NasaRepositoryImpl @Inject constructor(private val api: NasaAPI, private v
                 emit(ImageOfDay("", "", "", "", "", "", ""))
             }
         }
+    }.flowOn(IO)
+
+    override fun getAsteroidsWeek(): Flow<List<Asteroid>> = flow {
+        emit(
+            dao.getAsteroidsByPeriod(
+                startDate.format(DateTimeFormatter.ISO_DATE), endDate.format(
+                    DateTimeFormatter.ISO_DATE
+                )
+            )
+        )
+    }.flowOn(IO)
+
+    override fun getAsteroidsDay(): Flow<List<Asteroid>> = flow {
+        emit(
+            dao.getAsteroidsByDay(
+                startDate.format(DateTimeFormatter.ISO_DATE)
+            )
+        )
     }.flowOn(IO)
 }

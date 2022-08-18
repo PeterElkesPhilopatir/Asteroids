@@ -20,6 +20,7 @@
             android:id="@+id/iv_img_of_day"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:contentDescription="@{viewModel.imageOfDay.title}"
             android:scaleType="fitXY"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -29,6 +30,43 @@
             tools:src="@tools:sample/avatars"
             tools:text="6" />
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:checkedChip="@id/chip_all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_img_of_day"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_all"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/all"
+                android:text="@string/all" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_week"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:contentDescription="@string/week"
+                android:text="@string/week" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_today"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/today"
+                android:text="@string/today" />
+
+        </com.google.android.material.chip.ChipGroup>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_data"
             android:layout_width="match_parent"
@@ -37,7 +75,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_img_of_day"
+            app:layout_constraintTop_toBottomOf="@id/chip_group_title"
             tools:listitem="@layout/row_asteroid" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

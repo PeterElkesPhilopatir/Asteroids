@@ -8,8 +8,15 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NasaDao {
-    @Query(value = "select * from asteroid_tbl where closeApproachDate = :date")
-    fun getAsteroids(date : String): List<Asteroid>
+
+    @Query("SELECT * FROM asteroid_tbl ORDER BY closeApproachDate DESC")
+    fun getAsteroids(): List<Asteroid>
+
+    @Query("SELECT * FROM asteroid_tbl WHERE closeApproachDate = :startDate ORDER BY closeApproachDate DESC")
+    fun getAsteroidsByDay(startDate: String): List<Asteroid>
+
+    @Query("SELECT * FROM asteroid_tbl WHERE closeApproachDate BETWEEN :startDate AND :endDate ORDER BY closeApproachDate DESC")
+    fun getAsteroidsByPeriod(startDate: String, endDate: String): List<Asteroid>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAsteroid(asteroid: Asteroid)
