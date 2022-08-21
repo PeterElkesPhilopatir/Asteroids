@@ -40,8 +40,6 @@ class AsteroidsAdapter(private val onClickListener: OnAsteroidClickListener) :
             return oldItem.id == newItem.id
         }
     }
-
-
 }
 
 class AsteroidResultViewHolder(private var binding: RowAsteroidBinding) :
